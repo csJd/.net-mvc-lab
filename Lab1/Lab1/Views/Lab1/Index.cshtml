@@ -1,7 +1,124 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h3 align="center">个人详细信息</h3>
+<br />
 
+
+<table align="center" >
+    <tr>
+        <td>用户名：  </td>
+        <td><form> <input type="text" id="username"></form></td>
+    </tr>
+
+    <tr>
+        <td>密码：  </td>
+        <td><form> <input type="password" id="psd"></form></td>
+    </tr>
+
+    <tr>
+        <td>确认密码：  </td>
+        <td><form> <input type="password" id="psd1"></form></td>
+    </tr>
+
+    <tr>
+        <td>性别：  </td>
+        <td>
+            <form>
+                <input type="radio" name="sex" value="male"> 女
+                <input type="radio" name="sex" value="female" checked="checked" /> 男
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>籍贯：  </td>
+        <td>
+            <select id="sheng">
+                <option value="0">湖北</option>
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">深圳</option>
+            </select>
+
+            <select id="shi">
+                <option value="0">武汉</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>邮箱：  </td>
+        <td>
+            <form>
+                <input type="email" id="eml" />
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>手机号：  </td>
+        <td>
+            <form>
+                <input type="tel" id="tel"/>
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>专业特长：  </td>
+        <td>
+            <select id="techang" size="4">
+                <option value="0">C++编程</option>
+                <option value="1">Java编程</option>
+                <option value="2">PHP编程</option>
+                <option value="3">Python编程</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>业余爱好：  </td>
+        <td>
+            <form>
+                <input type="checkbox" name="habit" value="0"> 足球 
+                <input type="checkbox" name="habit" value="1" /> 篮球
+                <input type="checkbox" name="habit" value="2" /> 羽毛球
+                <input type="checkbox" name="habit" value="3" /> 唱歌
+                <input type="checkbox" name="habit" value="4" /> 游戏
+            </form>
+        </td>
+    </tr>
+
+    <tr>
+        <td>个人图片： </td>
+        <td>
+            <input type="file" name="pic" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>出生年月：  </td>
+        <td>
+            <input type="date" name="birthday"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td>备注信息：</td>
+        <td>
+            <textarea name="notes"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" />
+            <input type="reset" />
+        </td>
+    </tr>
+
+
+</table>
