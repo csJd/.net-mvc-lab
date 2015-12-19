@@ -3,23 +3,94 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @section scripts{
-
     <script src="~/Scripts/jquery-ui.js"></script>
     <script src="~/Scripts/jquery.cityselect.js"></script>
     <link href="~/Content/jquery-ui.css" rel="stylesheet" />
     <script>
         $(document).ready(function () {
+
             $("#date").datepicker({
                 dateFormat: "yy/mm/dd",
-                inline: true,
-            });
+            })
 
             $("#addr").citySelect({
                 nodata: "none",
                 required: false
             });
+
+            $("#username").blur(function () {
+                $("#chkusrn").html('');
+                var username = $(this).val();
+                if (!(/^[a-z]{6,10}$/.test(username))) {
+                    $("#chkusrn").css("color", "red");
+                    $("#chkusrn").html(' * ');
+                    $("#chkusrn").append('用户名需要是6到10位的小写字母!');
+                    return;
+                }
+
+                $("#chkusrn").html('');
+                $.ajax({
+                    type: "post",
+                    url: "CheckUsername",
+                    dataType: "html",
+                    data: {
+                        usrn: username,
+                    },
+                    success: function (msg) {
+                        $("#chkusrn").css("color", "red");
+                        $("#chkusrn").html(' * ');
+                        if (msg == 'true') {
+                            $("#chkusrn").css("color", "green");
+                            $("#chkusrn").html(' 用户名可以使用 ^_^ !');
+                        }
+                        else $("#chkusrn").append(msg);
+                    }
+                });
+            });
+
+            $("#psd").blur(function () {
+                var psd = $(this).val();
+                $("#chkpsd").html('');
+                if(!(/^[0-9]{6}$/.test(psd))){
+                    $("#chkpsd").css("color", "red");
+                    $("#chkpsd").html(' * ');
+                    $("#chkpsd").append('密码需要是6位数字');
+                }
+            });
+
+            $("#psd1").blur(function () {
+                var psd = $("#psd").val();
+                var psd1 = $(this).val();
+                $("#chkpsd1").html('');
+                if(psd1!=psd){
+                    $("#chkpsd1").css("color", "red");
+                    $("#chkpsd1").html(' * ');
+                    $("#chkpsd1").append('两次输入密码不相同!');
+                }
+            });
+
+            $("#eml").blur(function () {
+                var eml = $("#eml").val();
+                $("#chkeml").html('');
+                if (!(/^[A-Za-z0-9._%+-]+@@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(eml))) {
+                    $("#chkeml").css("color", "red");
+                    $("#chkeml").html(' * ');
+                    $("#chkeml").append('请输入合法的邮箱地址!');
+                }
+            });
+
+            $("#tel").blur(function () {
+                var tel = $("#tel").val();
+                $("#chktel").html('');
+                if (!(/^1569[0-9]{7}$/.test(tel))) {
+                    $("#chktel").css("color", "red");
+                    $("#chktel").html(' * ');
+                    $("#chktel").append('手机号应为1569开头的11位数字');
+                }
+            });
+
+
         });
     </script>
 }
@@ -31,17 +102,28 @@
     <table align="center">
         <tr>
             <td>用户名：  </td>
-            <td><input type="text" name="username"></td>
+            <td>
+                <input type="text" name="username" id="username" required>
+                <span id="chkusrn"></span>
+            </td>
         </tr>
 
         <tr>
             <td>密码：  </td>
-            <td><input type="password" name="psd" maxlength="6"></td>
+            <td>
+                <input type="password" id ="psd" name="psd">
+                <span id="chkpsd"></span>
+            </td>
+            
         </tr>
 
         <tr>
             <td>确认密码：  </td>
-            <td> <input type="password" name="psd1"> </td>
+            <td> 
+                <input type="password" id ="psd1" name="psd1">
+                <span id="chkpsd1"></span>
+            </td>
+
         </tr>
 
         <tr>
@@ -64,14 +146,16 @@
         <tr>
             <td>邮箱：  </td>
             <td>
-                <input type="email" name="eml" />
+                <input type="email" name="eml" id = "eml"/>
+                <span id="chkeml"></span>
             </td>
         </tr>
 
         <tr>
             <td>手机号：  </td>
             <td>
-                <input type="tel" name="tel" />
+                <input type="tel" name="tel" id = "tel"/>
+                <span id = "chktel"></span>
             </td>
         </tr>
 

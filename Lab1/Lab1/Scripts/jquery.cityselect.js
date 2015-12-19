@@ -17,7 +17,7 @@ required:必选项
 
 		// 默认值
 		settings=$.extend({
-			url:"/Scripts/citylist.min.js",
+			url:"/Scripts/citylist.min.json",
 			prov:null,
 			city:null,
 			dist:null,

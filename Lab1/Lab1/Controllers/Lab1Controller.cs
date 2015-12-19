@@ -18,5 +18,14 @@ namespace Lab1.Controllers
         {
             return View();
         }
+
+        public string CheckUsername(string usrn)
+        {
+            if (string.IsNullOrEmpty(usrn))
+                return "用户名不能为空"; 
+            if (usrn.Equals("wustzz"))
+                return "用户名已被占用";
+            return "true";
+        }
     }
 }
