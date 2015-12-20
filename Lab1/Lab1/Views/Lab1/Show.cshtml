@@ -1,8 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "Show";
+    ViewBag.Title = "显示信息";
 }
-<h2>Show</h2>
+<h2>你输入的信息如下：</h2>
 
 <table>
     <tr>
@@ -17,12 +17,12 @@
 
     <tr>
         <td>性别：  </td>
-        <td>@Request["sex"]</td>
+        <td>@Request["gender"]</td>
     </tr>
 
     <tr>
         <td>籍贯：  </td>
-        <td>@Request["prov"]</td>
+        <td>@Request["prov"] @Request["city"] @Request["dist"]</td>
     </tr>
 
     <tr>

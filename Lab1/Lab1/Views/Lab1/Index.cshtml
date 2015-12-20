@@ -11,8 +11,8 @@
         $(document).ready(function () {
 
             $("#date").datepicker({
-                dateFormat: "yy/mm/dd",
-            })
+                dateFormat: "yy/mm/dd"
+            });
 
             $("#addr").citySelect({
                 nodata: "none",
@@ -55,7 +55,7 @@
                 if(!(/^[0-9]{6}$/.test(psd))){
                     $("#chkpsd").css("color", "red");
                     $("#chkpsd").html(' * ');
-                    $("#chkpsd").append('密码需要是6位数字');
+                    $("#chkpsd").append('密码需要是6位数字!');
                 }
             });
 
@@ -86,11 +86,28 @@
                 if (!(/^1569[0-9]{7}$/.test(tel))) {
                     $("#chktel").css("color", "red");
                     $("#chktel").html(' * ');
-                    $("#chktel").append('手机号应为1569开头的11位数字');
+                    $("#chktel").append('手机号应为1569开头的11位数字!');
                 }
             });
 
-
+            $("#btnshow").click(function () {
+                var str = "你输入的信息如下：\n";
+                str += "用户名： " + $("#username").val() + "\n";
+                str += "密码： " + $("#psd").val() + "\n";
+                str += "性别： " + $("#gender:checked").val() + "\n";
+                str += "籍贯： " + $(".prov").val() +" " + $(".city").val() + "\n";
+                str += "邮箱： " + $("#eml").val() + "\n";
+                str += "手机号： " + $("#tel").val() + "\n";
+                str += "专业特长： " + $("#speciality").val() + "\n";
+                str += "业余爱好： ";
+                $(":checkbox[name='hobbies']:checked").each(function () {
+                    str += $(this).val() + " "
+                });
+                str += "\n个人图片： " + $("#pic").val() + "\n";
+                str += "出生年月：" + $("#date").val() + "\n";
+                str += "备注信息：" + $("#notes").val() + "\n";
+                alert(str);
+            });
         });
     </script>
 }
@@ -111,16 +128,15 @@
         <tr>
             <td>密码：  </td>
             <td>
-                <input type="password" id ="psd" name="psd">
+                <input type="password" id ="psd" name="psd" required>
                 <span id="chkpsd"></span>
             </td>
-            
         </tr>
 
         <tr>
             <td>确认密码：  </td>
             <td> 
-                <input type="password" id ="psd1" name="psd1">
+                <input type="password" id ="psd1" name="psd1" required>
                 <span id="chkpsd1"></span>
             </td>
 
@@ -129,8 +145,8 @@
         <tr>
             <td>性别：  </td>
             <td>
-                <input type="radio" name="sex" value="女"> 女
-                <input type="radio" name="sex" value="男" checked="checked" /> 男
+                <input type="radio" id="gender" name="gender" value="女"> 女
+                <input type="radio" id="gender" name="gender" value="男" checked="checked" /> 男
             </td>
         </tr>
 
@@ -162,11 +178,11 @@
         <tr>
             <td>专业特长：  </td>
             <td>
-                <select size="4" multiple name="speciality" >
-                    <option value="0">C++编程</option>
-                    <option value="1">Java编程</option>
-                    <option value="2">PHP编程</option>
-                    <option value="3">Python编程</option>
+                <select size="3" multiple id="speciality" name="speciality" >
+                    <option value="C++编程">C++编程</option>
+                    <option value="Java编程">Java编程</option>
+                    <option value="PHP编程">PHP编程</option>
+                    <option value="Python编程">Python编程</option>
                 </select>
             </td>
         </tr>
@@ -174,18 +190,18 @@
         <tr>
             <td>业余爱好：  </td>
             <td>
-                <input type="checkbox" name="hobbies" value="0"> 足球
-                <input type="checkbox" name="hobbies" value="1" /> 篮球
-                <input type="checkbox" name="hobbies" value="2" /> 羽毛球
-                <input type="checkbox" name="hobbies" value="3" /> 唱歌
-                <input type="checkbox" name="hobbies" value="4" /> 游戏
+                <input type="checkbox" name="hobbies" value="足球"> 足球
+                <input type="checkbox" name="hobbies" value="篮球" /> 篮球
+                <input type="checkbox" name="hobbies" value="羽毛球" /> 羽毛球
+                <input type="checkbox" name="hobbies" value="唱歌" /> 唱歌
+                <input type="checkbox" name="hobbies" value="游戏" /> 游戏
             </td>
         </tr>
 
         <tr>
             <td>个人图片： </td>
             <td>
-                <input type="file" name="pic" />
+                <input type="file" id="pic" name="pic" />
             </td>
         </tr>
 
@@ -199,13 +215,13 @@
         <tr>
             <td>备注信息：</td>
             <td>
-                <textarea name="notes"  rows="5"></textarea>
+                <textarea id="notes" name="notes" rows="5"></textarea>
             </td>
         </tr>
 
         <tr>
             <td>
-                <input type="button" id="btn" value="显示" />
+                <input type="button" id="btnshow" value="显示" />
             </td>
             <td>
                 <input type="submit" value="提交" />
