@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title + Flower Shop</title>
     <link href="~/Content/Lab2_Files/flowershop.css" rel="stylesheet" type="text/css" />
-
 </head>
+
 <body>
     <div id="wrap">
 
         <div class="header">
             <div class="logo">
-                <a href="Lab2"><img src="~/Content/Lab2_Files/images/logo.gif" alt="" title="" border="0" /></a>
+                <a href="~/Lab2/Index"><img src="~/Content/Lab2_Files/images/logo.gif" alt="" title="" border="0" /></a>
             </div>
             <div id="menu">
                 <ul>
-                    <li class="selected"><a href="index.html">home</a></li>
-                    <li><a href="about.html">about us</a></li>
-                    <li><a href="category.html">flowers</a></li>
-                    <li><a href="specials.html">specials gifts</a></li>
-                    <li><a href="myaccount.html">my accout</a></li>
-                    <li><a href="register.html">register</a></li>
-                    <li><a href="details.html">prices</a></li>
-                    <li><a href="contact.html">contact</a></li>
+                    <li class="selected"><a href="~/Lab2/Index">首页</a></li>
+                    <li><a href="~/Lab2/About">关于</a></li>
+                    <li><a href="#">花的种类</a></li>
+                    <li><a href="#">特殊礼品</a></li>
+                    <li><a href="#">我的账户</a></li>
+                    <li><a href="#">注册账号</a></li>
+                    <li><a href="#">花的信息</a></li>
+                    <li><a href="#">联系我们</a></li>
                 </ul>
             </div>
 
@@ -33,18 +33,18 @@
 
         <div class="center_content">
             <div class="left_content">
-                    @RenderBody()
+                @RenderBody()
             </div><!--end of left content-->
 
             <div class="right_content">
                 <div class="languages_box">
-                    <span class="red">Languages:</span>
+                    <span class="red">选择语言:</span>
                     <a href="#" class="selected"><img src="~/Content/Lab2_Files/images/gb.gif" alt="" title="" border="0" /></a>
                     <a href="#"><img src="~/Content/Lab2_Files/images/fr.gif" alt="" title="" border="0" /></a>
                     <a href="#"><img src="~/Content/Lab2_Files/images/de.gif" alt="" title="" border="0" /></a>
                 </div>
                 <div class="currency">
-                    <span class="red">Currency: </span>
+                    <span class="red">货币: </span>
                     <a href="#">GBP</a>
                     <a href="#">EUR</a>
                     <a href="#" class="selected">USD</a>
@@ -54,9 +54,9 @@
                 <div class="cart">
                     <div class="title"><span class="title_icon"><img src="~/Content/Lab2_Files/images/cart.gif" alt="" title="" /></span>My cart</div>
                     <div class="home_cart_content">
-                        3 x items | <span class="red">TOTAL: 100$</span>
+                        3 个商品 | <span class="red">总计: ￥100</span>
                     </div>
-                    <a href="cart.html" class="view_cart">view cart</a>
+                    <a href="cart.html" class="view_cart">查看</a>
                 </div>
 
                 @RenderPage("~/Views/Lab2/TestPage.cshtml");
@@ -67,10 +67,10 @@
         </div><!--end of center content-->
 
         <div class="footer">
-            <div class="left_footer"> 
+            <div class="left_footer">
                 <img src="~/Content/Lab2_Files/images/footer_logo.gif" alt="" title="" /><br />
                 <a href="http://csscreme.com/freecsstemplates/" title="free templates">
-                <img src="~/Content/Lab2_Files/images/csscreme.gif" alt="free templates" title="free templates" border="0" />
+                    <img src="~/Content/Lab2_Files/images/csscreme.gif" alt="free templates" title="free templates" border="0" />
                 </a>
             </div>
             <div class="right_footer">

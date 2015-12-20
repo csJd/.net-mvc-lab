@@ -247,6 +247,7 @@
     <Content Include="Views\Shared\_Layout_Lab2.cshtml" />
     <Content Include="Views\Lab2\Index.cshtml" />
     <Content Include="Views\Lab2\TestPage.cshtml" />
+    <Content Include="Views\Lab2\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
