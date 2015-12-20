@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "实验一|显示信息";
+}
+<h2>你输入的信息如下：</h2>
+
+<table>
+    <tr>
+        <td>用户名：  </td>
+        <td>@Request["username"]</td>
+    </tr>
+
+    <tr>
+        <td>密码：  </td>
+        <td>@Request["psd"]</td>
+    </tr>
+
+    <tr>
+        <td>性别：  </td>
+        <td>@Request["gender"]</td>
+    </tr>
+
+    <tr>
+        <td>籍贯：  </td>
+        <td>@Request["prov"] @Request["city"] @Request["dist"]</td>
+    </tr>
+
+    <tr>
+        <td>邮箱：  </td>
+        <td>@Request["eml"]</td>
+    </tr>
+
+    <tr>
+        <td>手机号：  </td>
+        <td>@Request["tel"]</td>
+    </tr>
+
+    <tr>
+        <td>专业特长：  </td>
+        <td>@Request["speciality"] </td>
+    </tr>
+
+    <tr>
+        <td>业余爱好：  </td>
+        <td>@Request["hobbies"]</td>
+    </tr>
+
+    <tr>
+        <td>个人图片： </td>
+        <td>
+            @*<img src=@Request["pic"]/>*@
+            @Request["pic"]
+        </td>
+    </tr>
+
+    <tr>
+        <td>出生年月：  </td>
+        <td>@Request["birthday"]</td>
+    </tr>
+
+    <tr>
+        <td>备注信息：</td>
+        <td>@Request["notes"]</td>
+    </tr>
+
+</table>
