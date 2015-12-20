@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Lab1Controller.cs" />
+    <Compile Include="Controllers\Lab2Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,7 +184,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Lab2_Files\flowershop.css" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\Lab2_Files\images\logo.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -241,6 +244,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Lab1\Index.cshtml" />
     <Content Include="Views\Lab1\Show.cshtml" />
+    <Content Include="Views\Shared\_Layout_Lab2.cshtml" />
+    <Content Include="Views\Lab2\Index.cshtml" />
+    <Content Include="Views\Lab2\TestPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
