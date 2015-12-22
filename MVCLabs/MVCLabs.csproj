@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Lab1Controller.cs" />
     <Compile Include="Controllers\Lab2Controller.cs" />
+    <Compile Include="Controllers\Lab5Controller.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -178,10 +179,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Movies.mdf" />
+    <Content Include="App_Data\Movies_log.ldf">
+      <DependentUpon>Movies.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Lab2_Files\flowershop.css" />
@@ -248,10 +254,13 @@
     <Content Include="Views\Lab2\Index.cshtml" />
     <Content Include="Views\Lab2\TestPage.cshtml" />
     <Content Include="Views\Lab2\About.cshtml" />
+    <Content Include="Views\Lab5\Index.cshtml" />
+    <Content Include="Views\Lab5\Create.cshtml" />
+    <Content Include="Views\Lab5\Edit.cshtml" />
+    <Content Include="Views\Lab5\Delete.cshtml" />
+    <Content Include="Views\Lab5\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
