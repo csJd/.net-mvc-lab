@@ -7,7 +7,23 @@
 <h2>首页</h2>
 
 <p>
-    @Html.ActionLink("添加电影", "Create")
+    @using (Html.BeginForm("Index", "Lab5", FormMethod.Post))
+    {
+        <p>
+            电影类型：
+            <select name="mgenre">
+                <option value="">所有</option>
+                <option value="动画">动画</option>
+                <option value="谍战">谍战</option>
+                <option value="爱情">爱情</option>
+                <option value="动作">动作</option>
+                <option value="科幻">科幻</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            电影名称：@Html.TextBox("mtitle")
+            <input type="submit" value="查询"/>
+        </p>
+    }
 </p>
 
 <table class="table">
@@ -56,3 +72,10 @@
 }
 
 </table>
+
+<p>
+    <h3>
+        @Html.ActionLink("添加电影", "Create")
+    </h3>
+</p>
+

@@ -5,12 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval"); @*客户端验证*@
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+
+            $("#ReleaseDate").datepicker({
+                dateFormat: "yy/mm/dd"
+            });
+        });
+    </script>
+}
+
+
 <h2>编辑</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Movie</h4>
         <hr />

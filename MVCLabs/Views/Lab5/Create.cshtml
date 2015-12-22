@@ -5,6 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval"); @*客户端验证*@
+
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+
+            $("#ReleaseDate").datepicker({
+                dateFormat: "yy/mm/dd"
+            });
+        });
+    </script>
+}
+
 <h2>添加</h2>
 
 @using (Html.BeginForm()) 

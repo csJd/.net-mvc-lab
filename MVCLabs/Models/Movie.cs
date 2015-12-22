@@ -18,7 +18,8 @@ namespace MVCLabs.Models
         public string Title { get; set; }     //电影名称
 
         [Display(Name = "上映时间")]
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]  //设置日期格式
         [Required(ErrorMessage = "必填")]
         public DateTime ReleaseDate { get; set; }    //上映时间
 

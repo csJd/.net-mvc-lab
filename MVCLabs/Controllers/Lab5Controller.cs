@@ -17,6 +17,15 @@ namespace MVCLabs.Controllers
         {
             return View(db.Movies.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(string mtitle, string mgenre)
+        {
+            if (mtitle == null) mtitle = "";
+            if (mgenre == null) mgenre = "";
+            var movies = from m in db.Movies where m.Title.Contains(mtitle) && m.Genre.Contains(mgenre) select m;
+            return View(movies);
+        }
+
 
         public ActionResult Create()
         {
@@ -27,9 +36,13 @@ namespace MVCLabs.Controllers
         [ValidateAntiForgeryToken]  //防CSRF攻击
         public ActionResult Create(Movie movie)
         {
-            db.Movies.Add(movie);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                db.Movies.Add(movie);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(movie);
         }
 
         public ActionResult Edit(int? id)
@@ -50,7 +63,7 @@ namespace MVCLabs.Controllers
         [ValidateAntiForgeryToken]  //防CSRF攻击
         public ActionResult Edit(Movie movie)
         {
-            if(ModelState.IsValid)
+            if(ModelState.IsValid)   //服务端验证
             {
                 db.Entry(movie).State = EntityState.Modified; //修改状态 不能少
                 db.SaveChanges();
