@@ -162,11 +162,7 @@ namespace TestEF
             while (flag)
             {
                 Console.WriteLine("# 请输入数字选择功能");
-                Console.WriteLine(" 1.  查询");
-                Console.WriteLine(" 2.  添加");
-                Console.WriteLine(" 3.  删除");
-                Console.WriteLine(" 4.  修改");
-                Console.WriteLine(" 0.  退出");
+                Console.WriteLine(" 1) 查询  2) 添加  3) 删除  4) 修改  0) 退出");
 
                 int op = int.Parse(Console.ReadLine());
                 if (op == 0) break;

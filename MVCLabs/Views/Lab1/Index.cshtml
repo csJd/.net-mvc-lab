@@ -52,7 +52,7 @@
             $("#psd").blur(function () {
                 var psd = $(this).val();
                 $("#chkpsd").html('');
-                if(!(/^[0-9]{6}$/.test(psd))){
+                if (!(/^[0-9]{6}$/.test(psd))) {
                     $("#chkpsd").css("color", "red");
                     $("#chkpsd").html(' * ');
                     $("#chkpsd").append('密码需要是6位数字!');
@@ -63,7 +63,7 @@
                 var psd = $("#psd").val();
                 var psd1 = $(this).val();
                 $("#chkpsd1").html('');
-                if(psd1!=psd){
+                if (psd1 != psd) {
                     $("#chkpsd1").css("color", "red");
                     $("#chkpsd1").html(' * ');
                     $("#chkpsd1").append('两次输入密码不相同!');
@@ -95,7 +95,7 @@
                 str += "用户名： " + $("#username").val() + "\n";
                 str += "密码： " + $("#psd").val() + "\n";
                 str += "性别： " + $("#gender:checked").val() + "\n";
-                str += "籍贯： " + $(".prov").val() +" " + $(".city").val() + "\n";
+                str += "籍贯： " + $(".prov").val() + " " + $(".city").val() + "\n";
                 str += "邮箱： " + $("#eml").val() + "\n";
                 str += "手机号： " + $("#tel").val() + "\n";
                 str += "专业特长： " + $("#speciality").val() + "\n";

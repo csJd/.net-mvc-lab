@@ -4,78 +4,73 @@
     ViewBag.Title = "实验5|首页";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <h2>首页</h2>
 
 <p>
-    @using (Html.BeginForm("Index", "Lab5", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Lab5", FormMethod.Get))
     {
-        <p>
-            电影类型：
-            <select name="mgenre">
-                <option value="">所有</option>
-                <option value="动画">动画</option>
-                <option value="谍战">谍战</option>
-                <option value="爱情">爱情</option>
-                <option value="动作">动作</option>
-                <option value="科幻">科幻</option>
-            </select>
-            &nbsp;&nbsp;&nbsp;
-            电影名称：@Html.TextBox("mtitle")
-            <input type="submit" value="查询"/>
-        </p>
+    <p>
+        @*根据数据库动态生成下拉列表*@
+        电影类型：@Html.DropDownList("mgenre", "所有")
+        &nbsp;&nbsp;&nbsp;
+        电影名称：@Html.TextBox("mtitle")
+        <input type="submit" value="查询" />
+    </p>
     }
-</p>
+    </p>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("详细", "Details", new { id=item.ID }) |
-            @Html.ActionLink("删除", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("详细", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 
-<p>
-    <h3>
-        @Html.ActionLink("添加电影", "Create")
-    </h3>
-</p>
+    <p>
+        <h3>
+            @Html.ActionLink("添加电影", "Create")
+        </h3>
+    </p>
 
